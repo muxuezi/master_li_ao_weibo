@@ -12,9 +12,9 @@ class DmozSpider(scrapy.Spider):
         #     f.write(response.body)
         for sel in response.css('.div_shadow')[3:]:
             item = DmozItem()
-            item['title'] = sel.xpath('.//div/p/a/@title').extract()
             item['date'] = sel.xpath('.//span/label/text()').extract()
-            # item['link'] = sel.xpath('a/@href').extract()
+            item['title'] = sel.xpath('.//div/p/a/@title').extract()
+            item['link'] = sel.xpath('.//div/p/a/@href').extract()
             # item['desc'] = sel.xpath('text()').extract()
             # print title, link, desc
             yield item
