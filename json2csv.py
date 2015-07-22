@@ -6,4 +6,4 @@ df.index = df.date.apply(atime).values
 for x in df.columns:
 	df[x] = df[x].apply(com)
 df = df.sort_index(ascending=False)
-df.to_excel('weibo.xlsx')
+df.to_csv('weibo.csv')
