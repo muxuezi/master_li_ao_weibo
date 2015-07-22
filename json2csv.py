@@ -5,5 +5,5 @@ com = lambda x: ','.join(x)
 df.index = df.date.apply(atime).values
 for x in df.columns:
 	df[x] = df[x].apply(com)
-df = df.sort_index(ascending=False)
+df = df.drop_duplicates().sort_index(ascending=False)
 df.to_csv('weibo.csv')
